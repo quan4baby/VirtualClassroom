@@ -1,1 +1,21 @@
-<h1>View Announcements</h1>
+<h1>View <%= pluralize(@announcements.count, "Announcement") %></h1>
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Details</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @announcements.each do |announcement| %>
+		<tr>
+			<td><%= announcement.title %></td>
+			<td><%= announcement.details %></td>
+			<td><a href="/announcements/<%= announcement.id %>">Edit</a>
+				<a href="/announcements/<%= announcement.id %>"data-method="delete" data-confirm="Are you sure?">Delete</a>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
