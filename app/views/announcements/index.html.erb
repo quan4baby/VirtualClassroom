@@ -1,22 +1,21 @@
-<h1>View <%= pluralize(@announcements.count, "Announcement") %></h1>
-<table>
+<h1><%= pluralize(@announcements.count, "Announcement") %></h1>
+<a href="/announcements/new">Create Announcement<a/>
+<table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Title</th>
-			<th>Details</th>
-			<th>Actions</th>
+			<th scope="col">Title</th>
+			<th scope="col">Actions</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @announcements.each do |announcement| %>
 		<tr>
 			<td> <%= announcement.title %></td>
-			<td style="white-space: pre-wrap; break-word;"><%= announcement.details %></td>
-			<td><a href="/announcements/<%= announcement.id %>">Edit</a>
+			<td><a href="/announcements/<%= announcement.id %>/show">Show | </a>
+				<a href="/announcements/<%= announcement.id %>/edit">Edit | </a>
 				<a href="/announcements/<%= announcement.id %>"data-method="delete" data-confirm="Are you sure?">Delete</a>
 			</td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
-<a href="/announcements/new">Create Announcement<a/>

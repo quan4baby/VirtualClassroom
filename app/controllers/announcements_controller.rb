@@ -16,8 +16,12 @@ class AnnouncementsController < ApplicationController
 		end
 	end
 
+	def show
+		@announcement = Announcement.find(params[:id])
+	end
+
 	def edit
-		@announcements = Announcement.find(params[:id])
+		@announcement = Announcement.find(params[:id])
 	end
 
 	def update
@@ -26,8 +30,14 @@ class AnnouncementsController < ApplicationController
 			redirect_to "/announcements"
 		else
 			flash[:errors] = announcement.errors.full_messages
-			redirect_to "/announcements/#{announcement}"
+			redirect_to "/announcements/#{announcement.id}/edit"
 		end
+	end
+
+	def destroy
+		announcement = Announcement.find(params[:id])
+		announcement.destroy
+		redirect_to "/announcements"
 	end
 
 	private
