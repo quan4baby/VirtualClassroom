@@ -6,4 +6,7 @@ Rails.application.routes.draw do
 	get "announcements/:id/edit" => "announcements#edit"
 	patch "announcements/:id" => "announcements#update"
 	delete "announcements/:id" => "announcements#destroy"
+	get "links" => "links#index"
+	get "links/new" => "links#new"
+	post "links" => "links#create"
   end
