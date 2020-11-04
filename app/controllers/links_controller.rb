@@ -1,5 +1,5 @@
-class LinksController < ApplicationController
-	def index
+class LinkController < ApplicationController
+		def index
 		@links = Link.all
 	end
 
@@ -7,8 +7,8 @@ class LinksController < ApplicationController
 	end
 
 	def create
-		links = Link.new(link_params)
-		if links.save
+		link = Link.new(link_params)
+		if link.save
 			redirect_to "/links"
 		else
 			flash[:errors] = link.errors.full_messages
@@ -16,8 +16,12 @@ class LinksController < ApplicationController
 		end
 	end
 
+	def show
+		@link = Link.find(params[:id])
+	end
+
 	private
 	def link_params
-		params.require(:link).permit(:title)
+		params.require(:link).permit(:title, :url)
 	end
 end

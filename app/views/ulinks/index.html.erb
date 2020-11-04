@@ -1,0 +1,21 @@
+<h1><%= pluralize(@ulinks.count, "Link") %></h1>
+<a href="/ulinks/new">Create Link<a/>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">Title</th>
+			<th scope="col">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @ulinks.each do |ulink| %>
+		<tr>
+			<td> <%= ulink.title %></td>
+			<td><a href="/ulinks/<%= ulink.id %>/show">Show | </a>
+				<a href="/ulinks/<%= ulink.id %>/edit">Edit | </a>
+				<a href="/ulinks/<%= ulink.id %>"data-method="delete" data-confirm="Are you sure?">Delete</a>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
