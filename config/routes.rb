@@ -10,4 +10,8 @@ Rails.application.routes.draw do
 	get "ulinks/new" => "ulinks#new"
 	post "ulinks" => "ulinks#create"
 	get "ulinks/:id/show" => "ulinks#show"
+	get "ulinks/:id/edit" => "ulinks#edit"
+	patch "ulinks/:id" => "ulinks#update"
+	delete "ulinks/:id" => "ulinks#destroy"
+
   end

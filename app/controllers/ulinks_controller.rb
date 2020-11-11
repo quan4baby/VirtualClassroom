@@ -20,6 +20,26 @@ class UlinksController < ApplicationController
 		@ulink = Ulink.find(params[:id])
 	end
 
+	def edit
+		@ulink = Ulink.find(params[:id])
+	end
+
+	def update
+		ulink = Ulink.find(params[:id])
+		if ulink.update(ulink_params)
+			redirect_to "/ulinks"
+		else
+			flash[:errors] = ulink.errors.full_messages
+			redirect_to "/ulinks/#{ulink.id}/edit"
+		end
+	end
+
+	def destroy
+		ulink = Ulink.find(params[:id])
+		ulink.destroy
+		redirect_to "/ulinks"
+	end
+
 	private
 	def ulink_params
 		params.require(:ulink).permit(:title, :url)
