@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 	get "ulinks/:id/edit" => "ulinks#edit"
 	patch "ulinks/:id" => "ulinks#update"
 	delete "ulinks/:id" => "ulinks#destroy"
+	get "announcements/Classroom" => "announcements#Classroom"
 
   end

@@ -3,7 +3,7 @@
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 	<p>
 		<label>Title:</label>
-		<input type="text" name="announcement[title]">
+		<input type="text" name="announcement[title]" maxlength="100" placeholder="(MAX 100 Characters)">
 	</p>
 	<p>
 		<label>Details:</label>
